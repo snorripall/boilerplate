@@ -1,0 +1,52 @@
+﻿// reakpoints
+$bp-wide-min:    1220px;
+$bp-netbook-max: $bp-wide-min - 1px;
+$bp-netbook-min: 980px;
+$bp-tablet-max:  $bp-netbook-min - 1px;
+$bp-tablet-min:  760px;
+$bp-phablet-max: $bp-tablet-min - 1px;
+$bp-phablet-min: 480px;
+$bp-phone-max:   $bp-phablet-min - 1px;
+
+// media queries
+$mq-base:           'screen';
+
+$mq-phone:          'screen and (max-width:'$bp-phone-max'))';
+$mq-phone_phablet:  'screen and (max-width:'$bp-phablet-max')';
+$mq-phone_tablet:   'screen and (max-width:'$bp-tablet-max')';
+
+$mq-phablet:        'screen and (min-width:'$bp-phablet-min') and (max-width:'$bp-phablet-max')';
+$mq-phablet_tablet: 'screen and (min-width:'$bp-phablet-min') and (max-width:'$bp-tablet-max')';
+$mq-phablet_up:     'screen and (min-width:'$bp-phablet-min')';
+
+$mq-tablet:         'screen and (min-width:'$bp-tablet-min') and (max-width:'$bp-tablet-max')';
+$mq-tablet_netbook: 'screen and (min-width:'$bp-tablet-min') and (max-width:'$bp-netbook-max')';
+$mq-tablet_up:       'screen and (min-width:'$bp-tablet-min')';
+
+$mq-netbook:        'screen and (min-width:'$bp-netbook-min') and (max-width:'$bp-netbook-max')';
+$mq-netbook_up:     'screen and (min-width:'$bp-netbook-min')';
+
+$mq-wide:           'screen and (min-width:'$bp-wide-min')';
+
+// grid
+$gutter: 30px;
+$column: 70px;
+$edge: 20px;
+$pageWidthMax: (12*$column + 11*$gutter);
+$pageWidthMaxOuter: ($pageWidthMax + (2*$edge));
+
+// typography
+$font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-heading: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base: 16;
+$font-line-height: 20;
+
+// functions
+@function percentageCol($col) {  
+    $gut: $col - 1;
+    @return percentage(($col*$column + $gut*$gutter) / $pageWidthMax );  
+}    
+
+@function percentagePx($pixels) {
+    @return percentage(($pixels *1px) / $pageWidthMax);
+}
